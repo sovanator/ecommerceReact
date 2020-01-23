@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-
 const Card = (props) => {
-    const {img, title, info, clickHandler} =  props
-    const [isShown, setIsShown, modalShow, setModalShow] = useState(false);
+    const {img, title, info, clickHandler, products} =  props
+    const [isShown, setIsShown] = useState(false);
     
     return (   
     <React.Fragment>
         <div 
             onMouseEnter={()=>setIsShown(true)}   
             onMouseLeave={()=>setIsShown(false)}   
-            className="card mb-4 shadow-sm">
+            className="card mb-4 shadow-sm" >
 
-            <img  className="card-img-top" src={img} alt={title} />
+            <img  className="img-thumbnail" src={img} alt={title} />
             <div className="card-body">
                 <p className="card-text">{info}</p>
             </div>
@@ -19,7 +18,7 @@ const Card = (props) => {
                 <div>
                     <button 
                     className="btn btn-primary"
-                    onClick={()=>clickHandler()}>Add To Cart</button>
+                    onClick={()=>clickHandler(products)}>Add To Cart</button>
                 </div>
             )}
         </div>

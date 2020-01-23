@@ -1,16 +1,28 @@
 import React from 'react';
-import Products from './Component/products'
-import CardPage from './Component/cardPage'
 import './App.css'; 
+import {Route, Redirect, Switch} from 'react-router-dom'
 import NavBar from './Component/navBar';
+import ProductsHome from './Component/productsHome'
+import CardPage from './Component/cardPage'
+import Cart from './Component/cart'
+
 
 function App() {
   return (
     <React.Fragment>
       <NavBar />
-      <Products />
-      <CardPage />
+     
+      <main className="container">
+      <Switch>
+        <Route path="/mycart" component={Cart}/>
+        <Route path="/" component={ProductsHome}/>
+       
+       <CardPage />
+        
+      </Switch>
+    </main>
     </React.Fragment>
+    
   );
 }
 
